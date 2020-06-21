@@ -2,7 +2,7 @@
 Sends data to Australian Liberal Party sites.
 
 # Todo
-The Northern Territory CLP and 
+The Northern Territory CLP and reCaptcha research on the NSW, Victoria, and Tasmania sites.
 
 # Setup
 Run the following command to install the necessary Python libraries:  
