@@ -67,6 +67,7 @@ user_agents = [
     "Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36",
     "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36",
     "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:49.0) Gecko/20100101 Firefox/49.0",]
+
 sites = json.loads(open('sites.json').read())
 roadTypes = ['street', 'st', 'cres', 'crescent', 'road', 'rd', 'bvd', 'boulevard', 'ave', 'avenue']
 
