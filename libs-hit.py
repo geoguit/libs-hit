@@ -35,43 +35,44 @@ def is_allowed_specific_char(string): # This function checks if a string contain
     string = charRe.search(string)
     return not bool(string)
 
-random.seed = (os.urandom(1024))
-names = json.loads(open('first-names.json').read())
-lastNames = json.loads(open('surnames.json').read())
 msg = urllib.parse.quote('Gladys Berejiklian killed all those Koalas.')
 pytesseract.pytesseract.tesseract_cmd = 'C:\Program Files\Tesseract-OCR/tesseract.exe'
-states = ['ACT', 'NSW', 'NT', 'SA', 'TAS', 'VIC', 'WA', 'QLD']
-user_agents = [
-    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36",
-    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36",
-    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/602.1.50 (KHTML, like Gecko) Version/10.0 Safari/602.1.50",
-    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.11; rv:49.0) Gecko/20100101 Firefox/49.0",
-    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36",
-    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36",
-    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36",
-    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_1) AppleWebKit/602.2.14 (KHTML, like Gecko) Version/10.0.1 Safari/602.2.14",
-    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12) AppleWebKit/602.1.50 (KHTML, like Gecko) Version/10.0 Safari/602.1.50",
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.79 Safari/537.36 Edge/14.14393"
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36",
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36",
-    "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36",
-    "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36",
-    "Mozilla/5.0 (Windows NT 10.0; WOW64; rv:49.0) Gecko/20100101 Firefox/49.0",
-    "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36",
-    "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36",
-    "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36",
-    "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36",
-    "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:49.0) Gecko/20100101 Firefox/49.0",
-    "Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko",
-    "Mozilla/5.0 (Windows NT 6.3; rv:36.0) Gecko/20100101 Firefox/36.0",
-    "Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36",
-    "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36",
-    "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:49.0) Gecko/20100101 Firefox/49.0",]
 
+random.seed = (os.urandom(1024))
 sites = json.loads(open('sites.json').read())
+names = json.loads(open('first-names.json').read())
+lastNames = json.loads(open('surnames.json').read())
+user_agents = json.loads(open('user-agents.json').read())
+states = ['ACT', 'NSW', 'NT', 'SA', 'TAS', 'VIC', 'WA', 'QLD']
 roadTypes = ['street', 'st', 'cres', 'crescent', 'road', 'rd', 'bvd', 'boulevard', 'ave', 'avenue']
 
 while True:
+    #region Northern Territory CLP
+    fName = random.choice(names)
+    lName = random.choice(lastNames)
+
+    ext = randomString(3)
+    selectNm = random.randint(0, 3)
+    if(selectNm == 0):
+        uName = fName.lower() + ext + '@' + random.choice(['gmail.com', 'yahoo.com', 'outlook.com', 'hotmail.com'])
+            
+    elif(selectNm == 1):
+        uName = fName.lower() + '.' + lName.lower() + '@' + random.choice(['gmail.com', 'yahoo.com', 'outlook.com', 'hotmail.com'])
+        
+    elif(selectNm == 2):
+        uName = fName.lower() + ext + '.' + lName.lower() + '@' + random.choice(['gmail.com', 'yahoo.com', 'outlook.com', 'hotmail.com'])
+
+    elif(selectNm == 3):
+        uName = fName.lower() + '.' + lName.lower() + ext + '@' + random.choice(['gmail.com', 'yahoo.com', 'outlook.com', 'hotmail.com'])
+
+    phone = '+6' + str(random.randint(1,3)) + randomString(10)
+    s = requests.session()
+    res = s.post('https://www.countryliberal.org/ajax/apps/formSubmitAjax.php', allow_redirects=False, data={
+        ('-----------------------------9436464381213757358435338835\nContent-Disposition: form-data; name="_u209413799502065410[first]"\n\n' + fName + '\n-----------------------------9436464381213757358435338835\nContent-Disposition: form-data; name="_u209413799502065410[last]"\n\n' + lName + '\n-----------------------------9436464381213757358435338835\nContent-Disposition: form-data; name="_u943970894874121883"\n\n' + uName + '\n-----------------------------9436464381213757358435338835\nContent-Disposition: form-data; name="_u319684824361225293[number]"\n\n' + urllib.parse.quote(phone) + '\n-----------------------------9436464381213757358435338835\nContent-Disposition: form-data; name="_u652111513617466959"\n\n' + msg + '\n-----------------------------9436464381213757358435338835\nContent-Disposition: form-data; name="wsite_subject"\n\n\n-----------------------------9436464381213757358435338835\nContent-Disposition: form-data; name="form_version"\n\n2\n-----------------------------9436464381213757358435338835\nContent-Disposition: form-data; name="wsite_approved"\n\napproved\n-----------------------------9436464381213757358435338835\nContent-Disposition: form-data; name="ucfid"\n\n477023082516092686\n-----------------------------9436464381213757358435338835\nContent-Disposition: form-data; name="recaptcha_token"\n\n\n-----------------------------9436464381213757358435338835--').encode()
+    })
+    print('[NT Country Liberals] Email: %s, phone: %s, got status code %s.' % (uName, phone, res.status_code))
+    #endregion
+
     #region Western Australia Liberals
     fName = random.choice(names)
     lName = random.choice(lastNames)
@@ -256,7 +257,7 @@ while True:
     #endregion
 
     #region Young Liberals
-    s = requests.Session()
+    s = requests.session()
     io.open('ylcaptcha.png', 'wb').write((s.get('https://www.youngliberal.org.au/components/com_chronoforms/chrono_verification.php?imtype=1').content))
     check_output(['magick', '.\ylcaptcha.png', '-resample', '600', '.\ylcaptcha.png'])
     captcha = ''.join(pytesseract.image_to_string(Image.open('ylcaptcha.png')).split())

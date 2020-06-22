@@ -5,10 +5,10 @@ Sends data to Australian Liberal Party sites.
 The Northern Territory CLP and reCaptcha research on the NSW, Victoria, and Tasmania sites.
 
 # Setup
-Run the following command to install the necessary Python libraries:  
-<code>pip install Pillow requests pytesseract</code>  
-  
-Then install the following applications:  
+All you need to do to run libs-hit is run this command:
+<code>pip install -r requirements.txt</code>  
+
+And then install these applications on your machine:  
 https://imagemagick.org/script/download.php  
 https://github.com/tesseract-ocr/tesseract  
   
