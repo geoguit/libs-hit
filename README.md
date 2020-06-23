@@ -1,8 +1,8 @@
 # libs-hit
-Sends data to Australian Liberal Party sites.
+Python 3 script that sends data to Australian Liberal/National Party sites.
 
 # Todo
-The Northern Territory CLP and reCaptcha research on the NSW, Victoria, and Tasmania sites.
+reCaptcha research on the NSW, Victoria, and Tasmania sites.
 
 # Setup
 All you need to do to run libs-hit is run this command:
